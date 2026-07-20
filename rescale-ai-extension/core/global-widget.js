@@ -91,39 +91,39 @@
           <div class="rescale-section">
             <span class="rescale-section-title">Supported AI Platforms</span>
             <ul class="rescale-ai-list">
-              <li data-host="chatgpt.com" class="rescale-ai-item">
+              <li data-host="chatgpt.com" class="rescale-ai-item" onclick="window.open('https://chatgpt.com/', '_blank')">
                 <span class="rescale-ai-name">ChatGPT</span>
                 <span class="rescale-ai-url">chatgpt.com</span>
               </li>
-              <li data-host="claude.ai" class="rescale-ai-item">
+              <li data-host="claude.ai" class="rescale-ai-item" onclick="window.open('https://claude.ai/', '_blank')">
                 <span class="rescale-ai-name">Claude</span>
                 <span class="rescale-ai-url">claude.ai</span>
               </li>
-              <li data-host="chat.deepseek.com" class="rescale-ai-item">
+              <li data-host="chat.deepseek.com" class="rescale-ai-item" onclick="window.open('https://chat.deepseek.com/', '_blank')">
                 <span class="rescale-ai-name">DeepSeek</span>
                 <span class="rescale-ai-url">chat.deepseek.com</span>
               </li>
-              <li data-host="gemini.google.com" class="rescale-ai-item">
+              <li data-host="gemini.google.com" class="rescale-ai-item" onclick="window.open('https://gemini.google.com/', '_blank')">
                 <span class="rescale-ai-name">Gemini</span>
                 <span class="rescale-ai-url">gemini.google.com</span>
               </li>
-              <li data-host="perplexity.ai" class="rescale-ai-item">
+              <li data-host="perplexity.ai" class="rescale-ai-item" onclick="window.open('https://www.perplexity.ai/', '_blank')">
                 <span class="rescale-ai-name">Perplexity</span>
                 <span class="rescale-ai-url">perplexity.ai</span>
               </li>
-              <li data-host="kimi.ai" class="rescale-ai-item">
+              <li data-host="kimi.ai" class="rescale-ai-item" onclick="window.open('https://kimi.moonshot.cn/', '_blank')">
                 <span class="rescale-ai-name">Kimi</span>
                 <span class="rescale-ai-url">kimi.com</span>
               </li>
-              <li data-host="qwen.ai" class="rescale-ai-item">
+              <li data-host="qwen.ai" class="rescale-ai-item" onclick="window.open('https://chat.qwen.ai/', '_blank')">
                 <span class="rescale-ai-name">Qwen</span>
                 <span class="rescale-ai-url">chat.qwen.ai</span>
               </li>
-              <li data-host="z.ai" class="rescale-ai-item">
+              <li data-host="z.ai" class="rescale-ai-item" onclick="window.open('https://chat.z.ai/', '_blank')">
                 <span class="rescale-ai-name">GLM (Z.ai)</span>
                 <span class="rescale-ai-url">chat.z.ai</span>
               </li>
-              <li data-host="arena.ai" class="rescale-ai-item">
+              <li data-host="arena.ai" class="rescale-ai-item" onclick="window.open('https://arena.ai/', '_blank')">
                 <span class="rescale-ai-name">LMSYS Arena</span>
                 <span class="rescale-ai-url">arena.ai</span>
               </li>

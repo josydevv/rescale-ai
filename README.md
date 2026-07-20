@@ -1,110 +1,92 @@
-# Rescale AI - Free AI Agent for Roblox Studio
+# 💎 Rescale AI × Roblox Studio Agent
 
-![GitHub stars](https://img.shields.io/github/stars/sebattfg/Rescale AI-Free?style=social)
-![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
-![License](https://img.shields.io/badge/license-GPL--3.0-blue)
+[![GPL-3.0 License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
+[![Discord](https://img.shields.io/badge/Discord-Community-7289DA.svg)](https://discord.gg/u6psyA7sta)
 
-**Rescale AI** is a free browser extension that turns DeepSeek, Gemini, Kimi, GLM, Qwen or Arena into a Roblox Studio AI agent.
-Control Roblox Studio with AI directly from your browser - read/edit scripts, run Luau, generate assets, all from a normal AI chat. No API key, no terminal, no coding needed.
+🤖 **Rescale AI** is a free browser extension that turns popular AI chat interfaces (like ChatGPT, Claude, DeepSeek, Gemini, Perplexity, and others) into an advanced **Roblox Studio AI Agent**.
 
-> 🌐 **Website: [rescale-ai-five.vercel.app](https://rescale-ai-five.vercel.app)** the free Lemonade.gg / Luamotion alternative for building Roblox games with AI.
+Control Roblox Studio directly from your favorite AI chat window in your browser—read/edit scripts, run Luau code, generate assets, and browse the creator store. No API keys, no complicated command line tools, and no coding knowledge needed!
 
-Six AI providers are supported: **DeepSeek** (chat.deepseek.com, recommended), **Google Gemini** (gemini.google.com), **Kimi** (kimi.com, Moonshot AI), **GLM** (chat.z.ai, Z.ai), **Qwen** (chat.qwen.ai) and **Arena** (arena.ai, a multi-model playground). Gemini and Kimi can be unstable: Gemini tends to stop using the Roblox tools in long sessions, and Kimi sometimes uses its own native tools instead of the Roblox commands. On Arena, use **Direct** mode (Rescale AI only supports Direct; it blocks Start in Battle / Side-by-Side / Agent modes). DeepSeek is the recommended provider.
-
-> 💬 **Stuck? Join the [Discord community](https://discord.gg/u6psyA7sta)** get help, share feedback, and follow updates.
-
-> *Also known as: Rescale AI Roblox, Rescale AI free download, Roblox DeepSeek agent, Roblox Gemini agent, Roblox Kimi agent, Roblox GLM agent, Roblox Qwen agent, Roblox Arena agent, Roblox Studio AI automation, Luau AI, MCP Roblox, lemonade alternative free, lemonade.gg alternative, free Roblox AI agent, free lemonade roblox alternative*
-## How it works
-
-```
-AI chat (DeepSeek / Gemini / Kimi / GLM / Qwen / Arena, in your browser) -> Rescale AI Extension -> Bridge (your PC) -> Roblox Studio
-```
-
-The extension runs inside the chat page (DeepSeek, Gemini, Kimi, GLM, Qwen or Arena). When you type a request, it sends commands to the Bridge running on your PC, which drives Roblox Studio through the built-in MCP server.
-
-## Setup
-
-> 📺 **Lost? Watch the [setup tutorial on YouTube](https://youtu.be/kPKiZLZ9_Ps) it covers every step below.**
-
-### 1. Download the zip and install the extension
-
-Download the latest zip from the **Releases** page and extract it. The zip contains both the **Bridge** and the **extension folder**.
-
-To load the extension:
-
-- Go to `edge://extensions` (Edge) or `chrome://extensions` (Chrome)
-- Enable **Developer mode** (top right toggle)
-- Click **Load unpacked**
-- Select the `rescale-ai-extension` folder from the extracted zip
-
-### 2. Start Roblox Studio and enable MCP
-
-Open Studio and load a Place, then enable MCP (first time only):
-
-- Click **Assistant AI** in the top bar
-- Click **...** (top right of the Assistant panel)
-- Click **Manage MCP Servers**
-- Click **Enable Studio as MCP Server**
-
-> Not sure where to find these options? The [video tutorial](https://youtu.be/kPKiZLZ9_Ps) shows exactly where to click.
-
-### 3. Run the Bridge
-
-Double-click `start.bat` inside the extracted folder. A small window opens, that means the Bridge is running.
-
-### 4. Start a session
-
-Go to https://chat.deepseek.com (recommended), https://gemini.google.com, https://www.kimi.com, https://chat.z.ai, https://chat.qwen.ai or https://arena.ai and open a new chat. The Rescale AI bar appears above the input box. Click **Start session**. Type what you want to build.
-
-> Only works on chat.deepseek.com, gemini.google.com, kimi.com, chat.z.ai, chat.qwen.ai and arena.ai - it will not work on any other site.
-> On Arena, keep the mode dropdown on **Direct** - Rescale AI blocks Start in Battle / Side-by-Side / Agent modes (it only drives a single Direct reply).
-> Gemini and Kimi can be unstable (model behavior, not the extension): Gemini may stop using the Roblox tools after a while, and Kimi may use its own native tools instead. If the AI starts answering in plain text instead of acting, remind it to use the commands or start a new session.
-### 5. Watch the setup tutorial
-
-[Watch the setup tutorial on YouTube](https://youtu.be/kPKiZLZ9_Ps)
-
-## What the AI can do
-
-- Read and edit scripts
-- Run Luau code directly in Studio
-- Inspect the game tree and instances
-- Generate meshes, materials, and models
-- Browse and insert from the Creator Store
-- Control play-testing
-- **Remember your project across sessions** persistent project memory saved inside your place
-
-## New in 1.4.2
-
-- **Self-healing Studio connection:** the bridge now recovers on its own from a third-party app hijacking Studio's MCP port, and from a leftover StudioMCP process that used to leave the tool count stuck at 0 no matter how many times you restarted Studio or the bridge.
-- **Clearer failure messages:** a missing custom-MCP command (e.g. `uvx` not installed) now names the real problem instead of looking like a silent restart loop.
-
-## New in 1.4.1
-
-- **Much more reliable Roblox Studio connection:** the bridge now recovers on its own from the connection issues Studio itself can cause - a stuck/orphaned MCP process, Studio opened after the bridge, or Studio's MCP toggle losing its registration. When it can't fix something automatically (e.g. Studio's MCP plugin needs a manual nudge), the status bar tells you exactly what to click instead of leaving you guessing or forcing a bridge restart.
-- **Faster startup with addon servers:** the bridge no longer waits on Roblox Studio before other MCP servers (like Blender) become usable - addons are ready in seconds instead of up to a minute.
-- **Sturdier bridge:** background monitoring can no longer silently stop working after an error; start.bat is hardened against more first-run edge cases (missing winget, an unextracted ZIP, stale installs).
-
-See [CHANGELOG.md](CHANGELOG.md) for older releases.
-
-## Panel status
-
-| Dot | Meaning |
-|-----|---------|
-| Green | Bridge + Studio ready (a place is open) |
-| Yellow | Bridge OK, but Studio isn't usable yet - open Roblox Studio, load a place, or enable its MCP server (hover the dot for the exact reason) |
-| Grey | Bridge offline - run start.bat |
-
-## Requirements
-
-- Windows PC
-- Roblox Studio (MCP support built-in)
-- Microsoft Edge or Chrome
-- Python 3.8+ (included in start.bat setup)
-
-## Support
-
-Rescale AI is free. If it saves you time: [Ko-fi](https://ko-fi.com/sebattfg) - Robux tip passes available in the extension panel
+🌐 **Website:** [rescale-ai-five.vercel.app](https://rescale-ai-five.vercel.app) (The premium, free alternative for building Roblox games with AI).
 
 ---
 
-Credit: the idea for connecting other MCP servers (Blender, Sketchfab, etc.) alongside Roblox Studio came from [javnpa](https://github.com/javnpa).
+## 🚀 Key Features
+
+* 📝 **Read & Edit Scripts:** The AI can view, write, and modify scripts directly inside your Roblox Studio workspace.
+* ⚙️ **Execute Luau Code:** Run code live in the Studio console to test scripts, spawn objects, or modify variables.
+* 🌳 **Game Tree Inspector:** Let the AI inspect your workspace hierarchy, find instances, and analyze structure.
+* 🎨 **Asset Generation:** Generate meshes, materials, and 3D models using AI generation tools.
+* 🔍 **Creator Store Integration:** Search the official Toolbox / Creator Store and import models/scripts.
+* 💾 **Persistent Workspace Memory:** Rescale AI saves context directly into your place file so it remembers your game structure across chats.
+* 🌐 **Global Browser Widget:** A floating helper bubble on non-chat websites that acts as your status dashboard and AI router.
+
+---
+
+## 🔌 Supported AI Platforms
+
+Rescale AI injects its premium control bar directly into the following AI interfaces:
+
+| AI Platform | Website | Status / Recommendation |
+| :--- | :--- | :--- |
+| 🚀 **DeepSeek** | [chat.deepseek.com](https://chat.deepseek.com) | **Recommended!** (Most stable tool usage) |
+| 🔮 **Claude** | [claude.ai](https://claude.ai) | **Excellent** (Native in-flow support) |
+| 💬 **ChatGPT** | [chatgpt.com](https://chatgpt.com) | **Excellent** (Supports both editor formats) |
+| ⚡ **Perplexity** | [perplexity.ai](https://www.perplexity.ai) | **Great** (Combines search + Roblox control) |
+| 🌟 **Google Gemini** | [gemini.google.com](https://gemini.google.com) | **Good** (Can sometimes drop tool usage in long chats) |
+| 🍃 **Kimi** | [kimi.com](https://www.kimi.com) | **Good** (Supports Moonshot AI) |
+| 🌊 **Qwen** | [chat.qwen.ai](https://chat.qwen.ai) | **Good** (Alibaba's advanced model) |
+| 🌌 **GLM (Z.ai)** | [chat.z.ai](https://chat.z.ai) | **Good** (Zhipu AI) |
+| 🏆 **LMSYS Arena** | [arena.ai](https://arena.ai) | **Good** (Use **Direct** mode only) |
+
+---
+
+## 🛠️ Step-by-Step Onboarding
+
+### 1️⃣ Download & Install the Extension
+1. Download the latest release files from the repository.
+2. In your browser (Chrome or Edge), go to:
+   - Chrome: `chrome://extensions/`
+   - Edge: `edge://extensions/`
+3. Toggle **Developer mode** on (top-right corner).
+4. Click **Load unpacked** (Load entpackte Erweiterung) in the top-left corner.
+5. Select the `rescale-ai-extension` folder.
+
+### 2️⃣ Configure Roblox Studio
+1. Open **Roblox Studio** and load your game/project file.
+2. Enable the MCP server (first time setup):
+   - Click the **Assistant AI** tab in the top bar.
+   - Click the three dots `...` in the top right of the Assistant panel.
+   - Click **Manage MCP Servers**.
+   - Enable **Enable Studio as MCP Server**.
+
+### 3️⃣ Start the Bridge
+1. Double-click the **`start.bat`** file in the project folder.
+2. Keep this terminal window open/minimized while working. It bridges the browser extension to Roblox Studio.
+
+### 4️⃣ Start Coding!
+1. Go to any supported AI chat (e.g., [DeepSeek](https://chat.deepseek.com) or [Claude](https://claude.ai)).
+2. The sleek, dark Rescale AI status bar will appear above the text input field.
+3. Click **Start Roblox agent** and begin prompting!
+
+---
+
+## 🟢 Status Indicators (Extension Bar)
+
+The status dot on the Rescale AI bar tells you if the agent is ready to receive commands:
+
+| Indicator | Status | Action Required |
+| :---: | :--- | :--- |
+| 🟢 **Green** | **Ready** | Bridge & Roblox Studio are connected and a place is open. Ready to work! |
+| 🟡 **Yellow** | **Studio Disconnected** | Bridge is running, but Studio is closed, place is closed, or MCP is disabled. Open a place or check settings. |
+| 🔘 **Grey** | **Bridge Offline** | The local bridge is not running. Double-click `start.bat` to launch it. |
+
+---
+
+## 🤝 Community & Support
+
+💬 **Stuck or need help?** Join our [Discord Community Server](https://discord.gg/u6psyA7sta) to ask questions, share your creations, and follow updates!
+
+---
+
+*Credit: The architecture for side-loading additional MCP servers (like Blender or Sketchfab) alongside Roblox Studio is based on an idea by [javnpa](https://github.com/javnpa).*
