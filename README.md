@@ -95,7 +95,14 @@ The status dot on the Rescale AI bar tells you if the agent is ready to receive 
 
 ## 🤝 Community & Support
 
-💬 **Stuck or need help?** Join our [Discord Community Server](https://discord.gg/u6psyA7sta) to ask questions, share your creations, and follow updates!
+> [!IMPORTANT]
+> ⚠️ **Need Help & Support?** If you run into any issues during installation, need setup assistance, or want to report a bug, please join our official **[Support Discord Server](https://discord.gg/u6psyA7sta)**! We are active and ready to help you get everything running smoothly.
+
+💬 Join us on **[Discord](https://discord.gg/u6psyA7sta)** to:
+- 🛠️ Get setup assistance and troubleshoot errors.
+- 💡 Suggest new features and improvements.
+- 📣 Stay updated on the latest releases and news.
+- 🎮 Share your creations and collaborate with other developers.
 
 ---
 

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rescale AI — Build Roblox Games with AI</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="logo-symbol">◆</span>
+        <span class="logo-text">Rescale AI</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="#features">Features</a>
+        <a href="#ais">Supported AIs</a>
+        <a href="#setup">Setup</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://discord.gg/u6psyA7sta" target="_blank" class="nav-link-discord">Support Discord</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://github.com/josydevv/rescale-ai" target="_blank" class="btn-github">
+          <svg class="github-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Chat your Roblox game <br>
+          <span class="text-gradient">into existence. Free.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Rescale AI is the premium open-source browser extension that bridges your favorite AI chat window directly to Roblox Studio. Write scripts, execute Luau, generate assets, and build worlds inside your normal chat workflow.
+        </p>
+        <div class="hero-btns">
+          <a href="https://github.com/josydevv/rescale-ai/releases" target="_blank" class="btn-primary">Download Extension</a>
+          <a href="https://discord.gg/u6psyA7sta" target="_blank" class="btn-secondary">Join Support Discord</a>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <div class="graphic-card">
+          <div class="graphic-header">
+            <span class="window-dot red"></span>
+            <span class="window-dot yellow"></span>
+            <span class="window-dot green"></span>
+            <span class="window-title">Rescale AI Status Overlay</span>
+          </div>
+          <img src="../assets/chat_extension_mockup.png" alt="Rescale AI Extension UI Mockup" class="mockup-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section id="features" class="features-section">
+    <div class="section-container">
+      <span class="section-badge">Comparison</span>
+      <h2 class="section-title">Same job. Zero dollars.</h2>
+      <p class="section-subtitle">Why pay monthly subscriptions when you can get the exact same results with a secure, open-source tool running on your own PC?</p>
+      
+      <div class="comparison-grid">
+        <!-- Luamotion/Lemonade Card -->
+        <div class="comparison-card border-gray">
+          <h3 class="comp-card-title text-gray">Other Roblox AIs</h3>
+          <div class="price-tag text-gray">$10–$25<span class="price-period">/ month</span></div>
+          <ul class="comp-list">
+            <li class="disabled">Locked into their server API</li>
+            <li class="disabled">Limited daily message limits</li>
+            <li class="disabled">No control over which AI model is used</li>
+            <li class="disabled">Closed source, private server</li>
+          </ul>
+        </div>
+        
+        <!-- Rescale AI Card -->
+        <div class="comparison-card border-blue highlighted">
+          <div class="card-accent-pill">Recommended</div>
+          <h3 class="comp-card-title text-blue">Rescale AI</h3>
+          <div class="price-tag text-blue">$0<span class="price-period">/ forever</span></div>
+          <ul class="comp-list">
+            <li class="enabled">Runs 100% locally on your computer</li>
+            <li class="enabled">Unlimited messages (uses your browser chats)</li>
+            <li class="enabled">Choose between 9+ AI models (ChatGPT, Claude, etc.)</li>
+            <li class="enabled">Open source, secure, and customizable</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Platforms Grid -->
+  <section id="ais" class="ais-section">
+    <div class="section-container">
+      <span class="section-badge">AI Support</span>
+      <h2 class="section-title">Every main "free" Roblox AI is here</h2>
+      <p class="section-subtitle">Switch seamlessly between the world's most powerful AI systems. We insert the Rescale AI control bar straight into their pages.</p>
+      
+      <div class="ai-grid">
+        <div class="ai-card" onclick="window.open('https://chat.deepseek.com/', '_blank')">
+          <span class="ai-logo">🚀</span>
+          <h3>DeepSeek</h3>
+          <p>Super fast, robust tool call capability. (Recommended)</p>
+        </div>
+        <div class="ai-card" onclick="window.open('https://claude.ai/', '_blank')">
+          <span class="ai-logo">🔮</span>
+          <h3>Claude</h3>
+          <p>Great code logic, in-flow verifications.</p>
+        </div>
+        <div class="ai-card" onclick="window.open('https://chatgpt.com/', '_blank')">
+          <span class="ai-logo">💬</span>
+          <h3>ChatGPT</h3>
+          <p>OpenAI's latest chat models, fully integrated.</p>
+        </div>
+        <div class="ai-card" onclick="window.open('https://www.perplexity.ai/', '_blank')">
+          <span class="ai-logo">⚡</span>
+          <h3>Perplexity</h3>
+          <p>Combines search and Roblox Studio commands.</p>
+        </div>
+        <div class="ai-card" onclick="window.open('https://gemini.google.com/', '_blank')">
+          <span class="ai-logo">🌟</span>
+          <h3>Gemini</h3>
+          <p>Google's multimodal engine in your workspace.</p>
+        </div>
+        <div class="ai-card" onclick="window.open('https://kimi.moonshot.cn/', '_blank')">
+          <span class="ai-logo">🍃</span>
+          <h3>Kimi</h3>
+          <p>Moonshot AI chat engine integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarding / Setup -->
+  <section id="setup" class="setup-section">
+    <div class="section-container">
+      <span class="section-badge">Onboarding</span>
+      <h2 class="section-title">5 steps, 0 headaches</h2>
+      <p class="section-subtitle">Setting up the Rescale AI bridge is incredibly simple. Just run the local executable and let the extension do the rest.</p>
+      
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-info">
+            <h3>Download the repository</h3>
+            <p>Download and extract the latest release files containing the local bridge and browser extension.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-info">
+            <h3>Load the extension</h3>
+            <p>Go to your browser extensions page, toggle "Developer mode" on, and load the unpacked <code>rescale-ai-extension</code> folder.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-info">
+            <h3>Enable MCP in Roblox Studio</h3>
+            <p>Open Studio, load a Place, go to Assistant AI settings and click <b>Enable Studio as MCP Server</b>.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-info">
+            <h3>Start the bridge</h3>
+            <p>Double-click the <code>start.bat</code> script to run the local websocket bridge connecting your browser to Studio.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <div class="step-info">
+            <h3>Open your AI chat</h3>
+            <p>Go to ChatGPT, Claude, or DeepSeek. Click <b>Start Roblox agent</b> and start chatting to build your game!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="section-container">
+      <span class="section-badge">FAQ</span>
+      <h2 class="section-title">Questions answered</h2>
+      <p class="section-subtitle">Got questions? We've got answers. If you need further help, reach out to us on Discord.</p>
+      
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is Rescale AI safe to use?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, Rescale AI is 100% safe. It is open-source, so you can inspect every line of code on GitHub. The bridge runs entirely locally on your machine, meaning none of your Roblox data or code is uploaded to third-party servers.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do I need paid API keys?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No! The extension runs inside your existing browser sessions on chatgpt.com, claude.ai, deepseek.com, etc. It types and reads messages using the web interface, meaning it uses your standard account limits—no API keys required.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does it connect to Roblox Studio?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Roblox Studio features a built-in MCP (Model Context Protocol) server. Rescale AI starts a local WebSocket bridge. The browser extension connects to this bridge, which forwards the AI's requests directly to Studio's MCP port.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I customize the Luau scripts generated by the AI?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely! The AI generates standard Luau scripts in Roblox Studio. You can edit them, playtest them, or ask the AI to modify them. You have full control over the project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="cta-banner">
+    <div class="section-container">
+      <div class="cta-card">
+        <h2>Ready to build faster?</h2>
+        <p>Join our Discord server for help, updates, and templates. Support is completely free.</p>
+        <div class="cta-btns">
+          <a href="https://discord.gg/u6psyA7sta" target="_blank" class="btn-primary-white">Join Support Discord</a>
+          <a href="https://github.com/josydevv/rescale-ai" target="_blank" class="btn-secondary-white">View GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-symbol">◆</span>
+        <span class="logo-text">Rescale AI</span>
+        <p>A free, open-source Roblox Studio AI Agent extension.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>GitHub</h4>
+          <a href="https://github.com/josydevv/rescale-ai" target="_blank">Repository</a>
+          <a href="https://github.com/josydevv/rescale-ai/releases" target="_blank">Releases</a>
+          <a href="https://github.com/josydevv/rescale-ai/issues" target="_blank">Issues</a>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <a href="https://discord.gg/u6psyA7sta" target="_blank">Discord Server</a>
+          <a href="https://github.com/josydevv/rescale-ai#readme" target="_blank">Documentation</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Rescale AI. Released under the GPL-3.0 License. Not affiliated with Roblox Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
