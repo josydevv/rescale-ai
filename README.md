@@ -7,7 +7,7 @@
 
 Control Roblox Studio directly from your favorite AI chat window in your browser—read/edit scripts, run Luau code, generate assets, and browse the creator store. No API keys, no complicated command line tools, and no coding knowledge needed!
 
-🌐 **Website:** [rescale-ai-five.vercel.app](https://rescale-ai-five.vercel.app) (The premium, free alternative for building Roblox games with AI).
+🌐 **Website:** [rescale-ai-cliply1.vercel.app](https://rescale-ai-cliply1.vercel.app) (The premium, free alternative for building Roblox games with AI).
 
 ---
 
