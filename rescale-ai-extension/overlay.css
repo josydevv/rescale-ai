@@ -15,15 +15,15 @@
   gap: 9px;
   box-sizing: border-box;
   padding: 7px 9px 7px 12px;
-  background: linear-gradient(135deg, rgba(15, 15, 22, 0.92) 0%, rgba(24, 24, 37, 0.92) 100%);
+  background: linear-gradient(135deg, rgba(15, 15, 22, 0.94) 0%, rgba(24, 24, 37, 0.94) 100%);
   color: #e8e8ec;
-  border: 1px solid rgba(127, 0, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 13px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(16px);
   font-size: 12px;
   user-select: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* In-flow mode: the bar is a real, full-width node in the composer layout that
@@ -104,11 +104,11 @@ html.zs-light #zs-bar.zs-bar-anchored {
 #zs-brand {
   font-weight: 800;
   letter-spacing: 0.5px;
-  background: linear-gradient(90deg, #ff007f, #7f00ff, #00ffd5);
+  background: linear-gradient(90deg, #ffffff 0%, #38bdf8 50%, #ffffff 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: rescale-glow 4s linear infinite;
+  animation: rescale-glow 6s linear infinite;
   flex: none;
   font-size: 12.5px;
 }
@@ -178,13 +178,14 @@ html.zs-light #zs-unstable {
   transition: filter 0.15s ease, background 0.15s ease;
 }
 #zs-action[data-kind="start"] {
-  background: linear-gradient(135deg, #ff007f, #7f00ff); color: #fff; border-color: transparent;
-  box-shadow: 0 4px 15px rgba(127, 0, 255, 0.45), inset 0 1px rgba(255, 255, 255, 0.2);
+  background: #1a1b24; color: #fff; border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 #zs-action[data-kind="start"]:hover {
-  filter: brightness(1.12);
-  box-shadow: 0 6px 20px rgba(255, 0, 127, 0.55), inset 0 1px rgba(255, 255, 255, 0.3);
+  background: #222430;
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25), 0 4px 15px rgba(0, 0, 0, 0.4);
   transform: translateY(-1px);
 }
 /* Degraded start: Roblox is down but another MCP server is live. Amber to signal
@@ -208,14 +209,15 @@ html.zs-light #zs-unstable {
 /* stop button (replaces the action button while the agent is busy) */
 #zs-stop {
   flex: none; padding: 7px 13px;
-  background: linear-gradient(135deg, #ff3b30, #ff007f); color: #fff; border: 0; border-radius: 9px;
+  background: #1a1b24; color: #fff; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 9px;
   font-size: 12.5px; font-weight: 700; cursor: pointer; white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease;
 }
 #zs-stop:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 6px 20px rgba(255, 0, 127, 0.6);
+  background: #222430;
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.25), 0 4px 15px rgba(0, 0, 0, 0.4);
   transform: translateY(-1px);
 }
 /* Winding-down state: the loop is finishing its in-flight step after a Stop
@@ -724,9 +726,9 @@ ol.flex-col-reverse > div.w-full:not(.mx-auto) > .zs-chip {
   padding: 0 0 14px;
   background: linear-gradient(135deg, rgba(15, 15, 22, 0.95) 0%, rgba(25, 25, 35, 0.95) 100%);
   color: #ececee;
-  border: 1px solid rgba(127, 0, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(16px);
   font-size: 12px;
   z-index: 2147483600;
@@ -734,13 +736,13 @@ ol.flex-col-reverse > div.w-full:not(.mx-auto) > .zs-chip {
 }
 #zs-setup-head {
   display: flex; align-items: baseline; gap: 7px;
-  padding: 12px 15px 11px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 12px 15px 11px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 #zs-setup-logo {
   font-weight: 800;
   font-size: 13px;
   letter-spacing: -0.1px;
-  background: linear-gradient(90deg, #ff007f, #7f00ff);
+  background: linear-gradient(90deg, #ffffff, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

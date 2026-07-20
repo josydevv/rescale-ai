@@ -18,7 +18,11 @@
     "http://127.0.0.1/*",
     "ws://127.0.0.1/*",
     "https://claude.ai/*",
-    "https://*.claude.ai/*"
+    "https://*.claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://perplexity.ai/*",
+    "https://*.perplexity.ai/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -151,6 +155,65 @@
       ],
       "css": [
         "overlay.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "core/config.js",
+        "core/parser.js",
+        "providers/chatgpt.js",
+        "core/main.js"
+      ],
+      "css": [
+        "overlay.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://perplexity.ai/*",
+        "https://www.perplexity.ai/*"
+      ],
+      "js": [
+        "core/config.js",
+        "core/parser.js",
+        "providers/perplexity.js",
+        "core/main.js"
+      ],
+      "css": [
+        "overlay.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "exclude_matches": [
+        "https://chat.deepseek.com/*",
+        "https://gemini.google.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.com/*",
+        "https://chat.z.ai/*",
+        "https://chat.qwen.ai/*",
+        "https://arena.ai/*",
+        "https://claude.ai/*",
+        "https://*.claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://perplexity.ai/*",
+        "https://www.perplexity.ai/*"
+      ],
+      "js": [
+        "core/global-widget.js"
+      ],
+      "css": [
+        "global-widget.css"
       ],
       "run_at": "document_idle"
     }

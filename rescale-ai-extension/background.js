@@ -13,7 +13,21 @@ const URL = `ws://127.0.0.1:${PORT}`;
 // Chat sites where a Rescale AI provider content script runs. Status pushes go
 // to every tab matching these. Add the new provider's URL pattern here (and in
 // manifest.json content_scripts + host_permissions) when integrating another AI.
-const PROVIDER_URLS = ["https://chat.deepseek.com/*", "https://gemini.google.com/*", "https://www.kimi.com/*", "https://kimi.com/*", "https://chat.z.ai/*", "https://chat.qwen.ai/*", "https://arena.ai/*"];
+const PROVIDER_URLS = [
+  "https://chat.deepseek.com/*",
+  "https://gemini.google.com/*",
+  "https://www.kimi.com/*",
+  "https://kimi.com/*",
+  "https://chat.z.ai/*",
+  "https://chat.qwen.ai/*",
+  "https://arena.ai/*",
+  "https://claude.ai/*",
+  "https://*.claude.ai/*",
+  "https://chatgpt.com/*",
+  "https://chat.openai.com/*",
+  "https://perplexity.ai/*",
+  "https://www.perplexity.ai/*"
+];
 
 const RECONNECT_MIN = 1000;
 const RECONNECT_MAX = 5000;
@@ -291,8 +305,12 @@ function statusObj() {
 
 function broadcastStatus() {
   chrome.runtime.sendMessage(statusObj()).catch(() => {});
-  chrome.tabs.query({ url: PROVIDER_URLS }, (tabs) => {
-    for (const t of tabs) chrome.tabs.sendMessage(t.id, statusObj()).catch(() => {});
+  chrome.tabs.query({}, (tabs) => {
+    if (tabs) {
+      for (const t of tabs) {
+        chrome.tabs.sendMessage(t.id, statusObj()).catch(() => {});
+      }
+    }
   });
 }
 
