@@ -1319,7 +1319,8 @@
           `Could not switch ${P.displayName} to the required mode. Start a new chat or reload the page, then try again.`);
         return;
       }
-      const prompt = ZS.buildSystemPrompt({ siteName: P.displayName, customPrompt: ui.getCustomPrompt() });
+      const toolsString = await runTool({ tool: "list_commands", arguments: {} });
+      const prompt = ZS.buildSystemPrompt({ siteName: P.displayName, customPrompt: ui.getCustomPrompt(), toolsString });
       const base = await submitAndGetBase(prompt);
       if (!alive()) return;
       // (syncSessionState pins A.startingKey to the conversation id once the chat

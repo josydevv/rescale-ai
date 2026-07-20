@@ -123,12 +123,16 @@ const ZS = (() => {
   // heading. It NEVER edits the prompt above - it only adds a layer below it.
   function buildSystemPrompt(opts = {}) {
     if (typeof opts === "string") opts = { siteName: opts };
-    const { siteName = "this AI site", customPrompt = "" } = opts;
+    const { siteName = "this AI site", customPrompt = "", toolsString = "" } = opts;
 
     const prompt = `CONTEXT:
-A browser extension (Rescale AI) is running inside this page. It watches your replies. When it detects a Rescale AI command in your text, it runs it against one or more connected MCP servers and sends the result back as the next message. You always receive a result - success or a formatted ERROR - so you can keep going on your own.
+A browser extension (Rescale AI) is running inside this page. It watches your replies. When it detects a Rescale AI command in your text, it runs it against the connected MCP servers and sends the result back as the next message.
 
-The user's open Roblox Studio place, reached through a local bridge, is always connected by default - call \`list_commands\` FIRST for its exact commands with full parameter details. Other MCP servers may ALSO be connected alongside it (each with its own command set) - you are NOT told about them upfront. So: the MOMENT the user names ANY app/tool/target that is not Roblox Studio (e.g. "Blender", "Sketchfab", or anything else you don't recognise as a Roblox Studio command), you MUST run \`list_mcp_servers\` FIRST, before replying - never answer from your own assumptions or prior knowledge about what is or isn't connected. Only after checking may you tell the user something is unsupported. You do not need any special capability yourself - you just write text. The extension does the rest.
+The system has successfully connected to the local Rescale AI bridge. The following tools are available to you immediately to interact with Roblox Studio:
+
+${toolsString}
+
+Other MCP servers may ALSO be connected alongside it (each with its own command set) - you are NOT told about them upfront. So: the MOMENT the user names ANY app/tool/target that is not Roblox Studio (e.g. "Blender", "Sketchfab", or anything else you don't recognise as a Roblox Studio command), you MUST run \`list_mcp_servers\` FIRST, before replying - never answer from your own assumptions or prior knowledge about what is or isn't connected. Only after checking may you tell the user something is unsupported. You do not need any special capability yourself - you just write text. The extension does the rest.
 
 CRITICAL - Rescale AI commands are NOT function calls / tools. They are plain JSON you TYPE into your normal text reply; Rescale AI reads your text and runs them. So NEVER use your own native/built-in tools or features for anything covered above - not code interpreter/sandbox, web search/browsing, file or web connectors, image tools, or real function calling. None of that touches the user's Roblox Studio, so it accomplishes nothing here and breaks the flow, even just to think, test, or draft. The ONLY exception is if the user EXPLICITLY asks you to search the web. Internal reasoning (deep-think modes) is fine. Do not try to "call a function" - just write the JSON below as ordinary text.
 
@@ -185,7 +189,17 @@ ${BT}
 - IF SOMETHING CONTRADICTS THE MEMORY: do NOT blindly trust either side. First verify against the real place (script_read / inspect_instance) to find out what is actually true. Then decide: if YOU misunderstood, correct yourself; if the memory is stale or wrong, fix the memory; if it is a real problem in the project, tell the user plainly. Always leave the memory consistent with reality.
 - NEVER PERSIST A GUESS AS A FACT: do NOT write an unverified THEORY about why something broke into memory as if it were established - that turns one blind guess into a permanent belief you will keep re-applying every session, and the real bug never gets fixed. Store only what you actually verified. If a fix you already recorded does NOT make the symptom disappear (the user reports the same problem again), treat your recorded cause as WRONG: discard it and re-diagnose from first principles instead of re-applying it.
 
-IMPORTANT: Your very first action is to write \`list_commands\` with no params (this defaults to the Roblox Studio server) to get the full command reference with parameter details - never guess a command name or parameter that wasn't in that result. Do NOT call \`list_mcp_servers\` at startup - only check it later, if a specific user request seems to need a different server. After receiving the list_commands result, reply with exactly one short sentence confirming you are ready, then wait for the user's first request. (Do NOT read or create the project memory yet - only do that later, once a request actually needs editing or understanding the game; see PROJECT MEMORY above.) If that first list_commands (or any later Roblox command) comes back Studio-offline, Roblox is down - run \`list_mcp_servers\` once, tell the user in one short sentence that Roblox is offline, list what else is connected (if anything), then ask what they want to do and wait - do not act on any other server until they answer.`;
+IMPORTANT: The tools listed above are already connected and active. You do not need to call \`list_commands\` to retrieve them. Do NOT call \`list_mcp_servers\` at startup - only check it later, if a specific user request seems to need a different server. Reply with exactly one short sentence confirming you are ready, then wait for the user's first request. (Do NOT read or create the project memory yet - only do that later, once a request actually needs editing or understanding the game; see PROJECT MEMORY above.) If the Roblox command list above says Roblox is offline, tell the user in one short sentence that Roblox is offline, list what else is connected (if anything), then ask what they want to do and wait.`;
+
+    // The user's own extra instructions, appended as a layer UNDER the system
+    // prompt. Optional - empty by default. It cannot change the rules above.
+    const extra = customPrompt.trim()
+      ? `\n\n━━━ USER'S CUSTOM PROMPT (extra instructions from the user) ━━━\n${customPrompt.trim()}`
+      : "";
+
+    // The marker leads the prompt; it tags the bootstrap turn for camouflage.
+    return `${SYS_MARKER}\n${prompt}${extra}`;
+  }
 
     // The user's own extra instructions, appended as a layer UNDER the system
     // prompt. Optional - empty by default. It cannot change the rules above.
