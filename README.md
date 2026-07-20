@@ -11,6 +11,16 @@ Control Roblox Studio directly from your favorite AI chat window in your browser
 
 ---
 
+## 📸 Visual Showcase
+
+### 💬 Chat Extension Status Bar (In-Flow Chat Overlay)
+![Chat Extension Mockup](assets/chat_extension_mockup.png)
+
+### 🗺️ Global Sidebar Widget (All-Site Dashboard)
+![Global Sidebar Mockup](assets/global_sidebar_mockup.png)
+
+---
+
 ## 🚀 Key Features
 
 * 📝 **Read & Edit Scripts:** The AI can view, write, and modify scripts directly inside your Roblox Studio workspace.

@@ -3,33 +3,212 @@
 <head>
   <meta charset="utf-8" />
   <style>
-    body { width: 248px; margin: 0; font-family: "Segoe UI", sans-serif; background: #16161a; color: #e8e8ec; }
-    .wrap { padding: 14px; }
-    h1 { font-size: 14px; margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
-    .free { font-size: 9px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
-            color: #34d399; background: rgba(52,211,153,.14); border: 1px solid rgba(52,211,153,.35);
-            padding: 1px 5px; border-radius: 5px; }
-    .dot { width: 9px; height: 9px; border-radius: 50%; background: #6b7280; }
-    .dot.on { background: #34d399; box-shadow: 0 0 8px #34d399; }
-    .dot.warn { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
-    .row { font-size: 12px; opacity: 0.85; margin: 6px 0; }
-    button { width: 100%; margin-top: 8px; padding: 8px; border: 0; border-radius: 8px; cursor: pointer; font-size: 12px; }
-    .ghost { background: rgba(255,255,255,0.08); color: #e8e8ec; }
-    .kofi { background: rgba(255,105,135,.16); color: #ff8fa3; border: 1px solid rgba(255,105,135,.4) !important; font-weight: 700; }
-    code { background: rgba(255,255,255,0.08); padding: 1px 5px; border-radius: 4px; }
+    body {
+      width: 290px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a0a0c;
+      color: #e4e4e7;
+      user-select: none;
+    }
+    .wrap {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    h1 {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #71717a;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .dot.on { background: #10b981; box-shadow: 0 0 10px #10b981; }
+    .dot.warn { background: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
+    
+    .badge-free {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    /* Cards */
+    .status-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+    
+    .status-title {
+      font-weight: 600;
+      color: #a1a1aa;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .status-row:last-child {
+      margin-bottom: 0;
+    }
+    .label { color: #a1a1aa; }
+    .val { font-weight: 500; color: #ffffff; }
+
+    /* Action Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      background: #16171f;
+      color: #e4e4e7;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: #1d1e2a;
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #ffffff;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.15);
+    }
+    
+    /* Launcher Section */
+    .launcher-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .launcher-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+    .launcher-btn {
+      padding: 6px 4px;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 500;
+      color: #a1a1aa;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .launcher-btn:hover {
+      background: rgba(56, 189, 248, 0.05);
+      border-color: rgba(56, 189, 248, 0.25);
+      color: #38bdf8;
+    }
+
+    /* Settings section */
+    .settings-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 8px;
+      font-size: 11px;
+      color: #71717a;
+    }
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .toggle-label:hover {
+      color: #a1a1aa;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1><span id="dot" class="dot"></span> Rescale AI <span class="free">Free</span> <span style="font-size:9px;opacity:.6">DeepSeek</span></h1>
-    <div class="row" id="state">Bridge: …</div>
-    <div class="row" id="tools"></div>
-    <div class="row" id="servers" style="white-space:pre-line; font-family:ui-monospace,monospace; opacity:0.75"></div>
-    <button class="ghost" id="reconnect">↻ Reconnect bridge</button>
-    <button class="ghost" id="restart">⟳ Restart Roblox server</button>
-    <button class="kofi" id="kofi">♥ Tip the developer on Ko-fi</button>
-    <div class="row" style="margin-top:10px; opacity:0.6">
-      Run <code>start.bat</code> and open <b>Roblox Studio</b>, then go to chat.deepseek.com.
+    <h1>
+      <div class="brand-group">
+        <span id="dot" class="dot"></span>
+        <span>Rescale AI</span>
+      </div>
+      <span class="badge-free">Free</span>
+    </h1>
+
+    <!-- Status Card -->
+    <div class="status-card">
+      <div class="status-title">System Status</div>
+      <div class="status-row">
+        <span class="label">Bridge Connection:</span>
+        <span id="state" class="val">Checking…</span>
+      </div>
+      <div class="status-row">
+        <span class="label">Available Tools:</span>
+        <span id="tools" class="val">0 (MCP)</span>
+      </div>
+      <div id="servers" style="white-space:pre-line; font-family:ui-monospace,monospace; opacity:0.75; font-size:10.5px; margin-top:6px; color:#a1a1aa;"></div>
+    </div>
+
+    <!-- AI Launcher Grid -->
+    <div class="launcher-section">
+      <div class="status-title">Quick Launch AI</div>
+      <div class="launcher-grid">
+        <a href="https://chatgpt.com/" target="_blank" class="launcher-btn">ChatGPT</a>
+        <a href="https://claude.ai/" target="_blank" class="launcher-btn">Claude</a>
+        <a href="https://chat.deepseek.com/" target="_blank" class="launcher-btn">DeepSeek</a>
+        <a href="https://gemini.google.com/" target="_blank" class="launcher-btn">Gemini</a>
+        <a href="https://www.perplexity.ai/" target="_blank" class="launcher-btn">Perplexity</a>
+        <a href="https://chat.qwen.ai/" target="_blank" class="launcher-btn">Qwen</a>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="btn-group">
+      <button id="reconnect">↻ Reconnect bridge</button>
+      <button id="restart">⟳ Restart Roblox server</button>
+    </div>
+
+    <!-- Global settings -->
+    <div class="settings-row">
+      <label class="toggle-label">
+        <input type="checkbox" id="toggle-widget" checked>
+        <span>Enable floating widget globally</span>
+      </label>
     </div>
   </div>
   <script src="popup.js"></script>

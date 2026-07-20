@@ -15,8 +15,12 @@
 
   const currentHost = window.location.hostname;
 
-  // Initialize: check if disabled for this site
-  chrome.storage.local.get(["disabled_hosts"], (res) => {
+  // Initialize: check if disabled for this site or globally
+  chrome.storage.local.get(["disabled_hosts", "global_widget_enabled"], (res) => {
+    if (res.global_widget_enabled === false) {
+      isWidgetEnabled = false;
+      return;
+    }
     const disabledHosts = res.disabled_hosts || [];
     if (disabledHosts.includes(currentHost)) {
       isWidgetEnabled = false;
